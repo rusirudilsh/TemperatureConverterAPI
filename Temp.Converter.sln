@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Temp.Converter.Core", "Temp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Temp.Converter.Models", "Temp.Converter.Models\Temp.Converter.Models.csproj", "{4DAFFC07-47B8-4BA6-A0B4-975DE3DFFFA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Temp.Converter.UnitTests", "Temp.Converter.UnitTests\Temp.Converter.UnitTests.csproj", "{24687337-4B42-4A12-B06F-07A636B241B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4DAFFC07-47B8-4BA6-A0B4-975DE3DFFFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DAFFC07-47B8-4BA6-A0B4-975DE3DFFFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DAFFC07-47B8-4BA6-A0B4-975DE3DFFFA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24687337-4B42-4A12-B06F-07A636B241B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24687337-4B42-4A12-B06F-07A636B241B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24687337-4B42-4A12-B06F-07A636B241B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24687337-4B42-4A12-B06F-07A636B241B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

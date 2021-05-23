@@ -17,10 +17,11 @@ namespace Temp.Converter.Core.Utility
         /// <returns></returns>
         public static TempConversionDataModel ConvertToOtherTypes(InputTempDataModel inputData)
         {
+            List<ConvertedTempData>     result          = new List<ConvertedTempData>();
+            TempConversionDataModel     resultModel     = null;
             try
             {
-                List<ConvertedTempData>     result          = new List<ConvertedTempData>();
-                TempConversionDataModel     resultModel     = new TempConversionDataModel();
+               
                 if (inputData != null && inputData.TemperatureTypesToConvert != null && inputData.TemperatureTypesToConvert.Length > 0)
                 {
 
@@ -77,9 +78,9 @@ namespace Temp.Converter.Core.Utility
 
                   
                 }
-
-                resultModel.ConvertedData = result;
-                return resultModel;
+                resultModel                         = new TempConversionDataModel();
+                resultModel.ConvertedData           = result;
+               
 
             }
             catch (ArithmeticException ex)
@@ -87,6 +88,7 @@ namespace Temp.Converter.Core.Utility
                 throw ex;
             }
 
+            return resultModel;
         }
 
 
@@ -97,7 +99,7 @@ namespace Temp.Converter.Core.Utility
         /// <returns></returns>
         private static ConvertedTempData FahrenheitToCelsius(double fahrenheit)
         {
-            return new ConvertedTempData { Value = (fahrenheit - 32) * 5 / 9, TemperatureType = TemperatureTypes.Celsius };
+            return new ConvertedTempData { Value = Math.Round((fahrenheit - 32) * 5 / 9, 2), TemperatureType = TemperatureTypes.Celsius };
         }
 
 
@@ -108,7 +110,7 @@ namespace Temp.Converter.Core.Utility
         /// <returns></returns>
         private static ConvertedTempData FahrenheitToKelvin(double fahrenheit)
         {
-            return new ConvertedTempData { Value = (fahrenheit - 32) * 5 / 9 + 273.15, TemperatureType = TemperatureTypes.Kelvin };
+            return new ConvertedTempData { Value = Math.Round((fahrenheit - 32) * 5 / 9 + 273.15, 2 ), TemperatureType = TemperatureTypes.Kelvin };
         }
 
 
@@ -119,7 +121,7 @@ namespace Temp.Converter.Core.Utility
         /// <returns></returns>
         private static ConvertedTempData CelsiusToFahrenheit(double celsius)
         {
-            return new ConvertedTempData { Value = (celsius * 5 / 9) + 32, TemperatureType = TemperatureTypes.Fahrenheit };
+            return new ConvertedTempData { Value = Math.Round((celsius * 9 / 5) + 32, 2), TemperatureType = TemperatureTypes.Fahrenheit };
         }
 
 
@@ -130,7 +132,7 @@ namespace Temp.Converter.Core.Utility
         /// <returns></returns>
         private static ConvertedTempData CelsiusToKelvin(double celsius)
         {
-            return new ConvertedTempData { Value = (celsius + 273.15), TemperatureType = TemperatureTypes.Kelvin };
+            return new ConvertedTempData { Value = Math.Round((celsius + 273.15),2), TemperatureType = TemperatureTypes.Kelvin };
         }
 
         /// <summary>
@@ -140,7 +142,7 @@ namespace Temp.Converter.Core.Utility
         /// <returns></returns>
         private static ConvertedTempData KelvinToFahrenheit(double kelvin)
         {
-            return new ConvertedTempData { Value = (kelvin - 273.15) * 9 / 5 + 32, TemperatureType = TemperatureTypes.Fahrenheit };
+            return new ConvertedTempData { Value = Math.Round((kelvin - 273.15) * 9 / 5 + 32, 2), TemperatureType = TemperatureTypes.Fahrenheit };
         }
 
 
@@ -151,7 +153,7 @@ namespace Temp.Converter.Core.Utility
         /// <returns></returns>
         private static ConvertedTempData KelvinToCelsius(double kelvin)
         {
-            return new ConvertedTempData { Value = (kelvin - 273.15), TemperatureType = TemperatureTypes.Celsius };
+            return new ConvertedTempData { Value = Math.Round((kelvin - 273.15), 2), TemperatureType = TemperatureTypes.Celsius };
         }
 
         #endregion
