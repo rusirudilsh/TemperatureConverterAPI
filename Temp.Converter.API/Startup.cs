@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Temp.Converter.Core.Interfaces;
+using Temp.Converter.Core.Services;
 
 namespace Temp.Converter.API
 {
@@ -25,6 +27,15 @@ namespace Temp.Converter.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddApplicationInsightsTelemetry();
+
+            services.AddOptions();
+
+            services.AddTransient<IMetaDataService, MetaDataService>();
+            services.AddTransient<IServiceHelper, ServiceHelper>();
+            services.AddTransient<ITempConvertService, TempConvertService>();
+
             services.AddControllers();
         }
 
@@ -35,7 +46,7 @@ namespace Temp.Converter.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();
